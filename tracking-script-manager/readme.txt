@@ -3,8 +3,8 @@ Contributors: eltodd, JHipkin, red8developers, bkueker, yingling017, sajpro, sta
 Donate link: http://red8interactive.com/
 Tags: adwords, analytics, conversion pixel, conversion tracking, facebook pixel, google adwords, google analytics, google tag manager, Marketo tracking scripts, Hubspot tracking scripts, Pardot tracking script, Eloqua tracking script, javascript, pixel tracking, remarketing, retargeting, tracking code, tracking script
 Requires at least: 4.0
-Tested up to: 6.5.3
-Stable tag: 2.0.13
+Tested up to: 6.8.1
+Stable tag: 2.0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ After that line is added to your theme, when creating or editing a script; you c
 4. Add a new Tracking Script to a specific post or page (including custom post types).
 
 == Changelog ==
+
+= 2.0.14 =
+* Test WP 6.8.1
 
 = 2.0.13 =
 * Test WP 6.5.5
