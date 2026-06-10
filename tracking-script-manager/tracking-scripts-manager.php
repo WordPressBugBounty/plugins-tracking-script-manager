@@ -4,7 +4,7 @@
  * Plugin Name: Tracking Script Manager
  * Plugin URI: http://wordpress.org/plugins/tracking-script-manager/
  * Description: A plugin that allows you to add tracking scripts to your site.
- * Version: 2.0.14
+ * Version: 2.0.15
  * Author: Red8 Interactive
  * Author URI: http://red8interactive.com
  * License: GPLv2 or later
@@ -44,6 +44,7 @@ if (! class_exists('Tracking_Scripts')) {
 		{
 
 			// Constants
+			define('TRACKING_SCRIPT_VERSION', '2.0.15');
 			define('TRACKING_SCRIPT_PATH', plugins_url(' ', __FILE__));
 			define('TRACKING_SCRIPT_BASENAME', plugin_basename(__FILE__));
 			define('TRACKING_SCRIPT_DIR_PATH', plugin_dir_path(__FILE__));
@@ -702,9 +703,9 @@ if (! class_exists('Tracking_Scripts')) {
 			global $post;
 			if ($hook === 'post.php' || $hook === 'post-new.php') {
 				if (! empty($post->post_type) && ($post->post_type === 'r8_tracking_scripts')) {
-					wp_enqueue_style('r8-tsm-edit-script', plugins_url('/css/tracking-script-edit.css', __FILE__), array(), md5_file(plugins_url('/css/tracking-script-edit.css', __FILE__)));
-					wp_enqueue_style('r8-tsm-select2-css', plugins_url('/css/select2.min.css', __FILE__), array(), md5_file(plugins_url('/css/select2.min.css', __FILE__)));
-					wp_enqueue_script('r8-tsm-select2-js', plugins_url('/js/select2.min.js', __FILE__), array(), md5_file(plugins_url('/js/select2.min.js', __FILE__)), true);
+					wp_enqueue_style('r8-tsm-edit-script', plugins_url('/css/tracking-script-edit.css', __FILE__), array(), TRACKING_SCRIPT_VERSION);
+					wp_enqueue_style('r8-tsm-select2-css', plugins_url('/css/select2.min.css', __FILE__), array(), TRACKING_SCRIPT_VERSION);
+					wp_enqueue_script('r8-tsm-select2-js', plugins_url('/js/select2.min.js', __FILE__), array(), TRACKING_SCRIPT_VERSION, true);
 					wp_enqueue_script(
 						'r8-tsm-post-edit-js',
 						plugins_url('/js/post-edit.js', __FILE__),
@@ -712,7 +713,7 @@ if (! class_exists('Tracking_Scripts')) {
 							'jquery',
 							'r8-tsm-select2-js',
 						),
-						md5_file(plugins_url('/js/post-edit.js', __FILE__)),
+						TRACKING_SCRIPT_VERSION,
 						true
 					);
 					wp_enqueue_style('jquery-ui-css', 'https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css');
@@ -721,8 +722,8 @@ if (! class_exists('Tracking_Scripts')) {
 			}
 			if ($hook === 'post.php' || $hook === 'edit.php') {
 				if (! empty($post->post_type) && ($post->post_type === 'r8_tracking_scripts')) {
-					wp_enqueue_style('r8-tsm-post-list', plugins_url('/css/post-list.css', __FILE__), array(), md5_file(plugins_url('/css/post-list.css', __FILE__)));
-					wp_enqueue_script('r8-tsm-post-list-js', plugins_url('/js/post-list.js', __FILE__), array('jquery'), md5_file(plugins_url('/js/post-list.js', __FILE__)), true);
+					wp_enqueue_style('r8-tsm-post-list', plugins_url('/css/post-list.css', __FILE__), array(), TRACKING_SCRIPT_VERSION);
+					wp_enqueue_script('r8-tsm-post-list-js', plugins_url('/js/post-list.js', __FILE__), array('jquery'), TRACKING_SCRIPT_VERSION, true);
 				}
 			}
 			if (! empty($post->post_type) && ($post->post_type === 'r8_tracking_scripts')) {
